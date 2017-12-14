@@ -1,0 +1,47 @@
+---
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
+  sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64/nvidia-docker.list | \
+  sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+sudo apt-get update
+
+# Install nvidia-docker2 and reload the Docker daemon configuration
+sudo apt-get install -y nvidia-docker2
+sudo pkill -SIGHUP dockerd
+
+
+# tasks file for instance.docker
+# https://github.com/NVIDIA/nvidia-docker
+- name: Install Docker apt key.
+  shell: curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -
+
+- name: Create the apt sources file.
+  copy:
+    src: nvidia-docker.list
+    dest: /etc/apt/sources.list.d/nvidia-docker.list
+
+- name: Update apt cache.
+  apt:
+    update_cache: yes
+  changed_when: false
+
+- name: Install Docker.
+  apt:
+    name: "nvidia-docker2"
+    state: present
+  register: apt_nvidia_docker
+
+- name: Reload Systemd.
+  command: systemctl daemon-reload
+  changed_when: false
+
+- name: Restart Docker.
+  service:
+    name: nvidia-docker2
+    state: restarted
+  when: apt_nvidia_docker.changed
+
+- name: Ensure Docker is started.
+  service:
+    name: nvidia-docker2
+    state: started

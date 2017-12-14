@@ -1,0 +1,21 @@
+# ethminer.yml
+# Initial raw configuration
+- hosts: all
+  become: yes
+  gather_facts: no
+  user: ubuntu
+  roles:
+    - role: ubuntu.raw_install_python
+
+- hosts: all
+  become: yes
+  gather_facts: yes
+  user: ubuntu
+  roles:
+    - role: instance.ssh_aws_public_key
+    - role: instance.packages
+    - role: instance.nvidia_docker
+    - role: instance.prometheus_node_exporter
+    - role: instance.ethminer
+      tags:
+        - eth
