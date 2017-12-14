@@ -6,7 +6,7 @@ After=docker.service
 ExecStartPre=-/usr/bin/nvidia-docker pull {{ ethminer_docker_image }}
 ExecStartPre=-/usr/bin/nvidia-docker rm ethminer
 ExecStart=/usr/bin/nvidia-docker run \
-  --net host \
+  --it \
   --name ethminer \
   {{ ethminer_docker_image }} \
   --cl-local-work 256 \
