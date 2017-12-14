@@ -43,3 +43,48 @@ resource "aws_subnet" "node-c" {
   }
 }
 
+# node subnet d
+resource "aws_subnet" "node-d" {
+  vpc_id            ="${ aws_vpc.main.id }"
+  cidr_block        = "${ var.cidr }.7.0/24"
+  availability_zone = "${ var.region }d"
+
+  tags {
+    terraform_id = "${ var.env }-terraform"
+    Name         = "${ var.env }-node-subnet-d"
+    Environment  = "${ var.env }"
+    Role         = "node"
+    Zone         = "public"
+  }
+}
+
+# node subnet e
+resource "aws_subnet" "node-e" {
+  vpc_id            ="${ aws_vpc.main.id }"
+  cidr_block        = "${ var.cidr }.8.0/24"
+  availability_zone = "${ var.region }e"
+
+  tags {
+    terraform_id = "${ var.env }-terraform"
+    Name         = "${ var.env }-node-subnet-e"
+    Environment  = "${ var.env }"
+    Role         = "node"
+    Zone         = "public"
+  }
+}
+
+# node subnet f
+resource "aws_subnet" "node-f" {
+  vpc_id            ="${ aws_vpc.main.id }"
+  cidr_block        = "${ var.cidr }.9.0/24"
+  availability_zone = "${ var.region }f"
+
+  tags {
+    terraform_id = "${ var.env }-terraform"
+    Name         = "${ var.env }-node-subnet-f"
+    Environment  = "${ var.env }"
+    Role         = "node"
+    Zone         = "public"
+  }
+}
+

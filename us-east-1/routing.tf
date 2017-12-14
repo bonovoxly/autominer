@@ -29,3 +29,21 @@ resource "aws_route_table_association" "node-c" {
   route_table_id = "${ aws_route_table.public.id }"
 }
 
+# node-d association
+resource "aws_route_table_association" "node-d" {
+  subnet_id      = "${ aws_subnet.node-d.id }"
+  route_table_id = "${ aws_route_table.public.id }"
+}
+
+# node-e association
+resource "aws_route_table_association" "node-e" {
+  subnet_id      = "${ aws_subnet.node-e.id }"
+  route_table_id = "${ aws_route_table.public.id }"
+}
+
+# node-f association
+resource "aws_route_table_association" "node-f" {
+  subnet_id      = "${ aws_subnet.node-f.id }"
+  route_table_id = "${ aws_route_table.public.id }"
+}
+

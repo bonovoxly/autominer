@@ -34,11 +34,11 @@ resource "aws_spot_instance_request" "ethminer" {
   associate_public_ip_address = true
   count = "1"
   key_name = "${ aws_key_pair.mod-dev.key_name }"
-  subnet_id = "${ aws_subnet.node-a.id }"
+  subnet_id = "${ aws_subnet.node-e.id }"
   user_data = "${file("ethminer_data.sh")}"
   vpc_security_group_ids = ["${ aws_security_group.ethminer.id }"]
   tags {
-    Name = "${ var.env }-miner-a-${ count.index }"
+    Name = "${ var.env }-miner-e-${ count.index }"
     terraform_id = "${ var.env }-terraform"
     Environment = "${ var.env }"
     Role = "ethminer"
