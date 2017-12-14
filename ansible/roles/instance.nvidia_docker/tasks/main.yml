@@ -24,13 +24,3 @@
   command: systemctl daemon-reload
   changed_when: false
 
-- name: Restart Docker.
-  service:
-    name: nvidia-docker2
-    state: restarted
-  when: apt_nvidia_docker.changed
-
-- name: Ensure Docker is started.
-  service:
-    name: nvidia-docker2
-    state: started
