@@ -1,0 +1,18 @@
+---
+# tasks file for instance.docker
+# https://docs.docker.com/engine/installation/linux/ubuntulinux/
+- name: Install Docker apt key.
+  apt_key:
+    keyserver: "{{ docker_keyserver }}"
+    id: "{{ docker_id }}"
+
+- name: Create the apt sources file.
+  copy:
+    src: docker.list
+    dest: /etc/apt/sources.list.d/docker.list
+
+- name: Update apt cache.
+  apt:
+    update_cache: yes
+  changed_when: false
+
