@@ -1,13 +1,13 @@
 # ethminer.yml
 # Initial raw configuration
-- hosts: localhost
+- hosts: all
   become: yes
   gather_facts: no
   user: ubuntu
   roles:
     - role: ubuntu.raw_install_python
 
-- hosts: localhost
+- hosts: all
   become: yes
   gather_facts: yes
   user: ubuntu
