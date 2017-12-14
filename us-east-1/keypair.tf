@@ -1,4 +1,4 @@
-resource "aws_key_pair" "dev" {
-  key_name   = "dev"
+resource "aws_key_pair" "mod-dev" {
+  key_name   = "mod-dev"
   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEnvihh7kXS4oDOxgBed3kk8zb3Uae2kWq5l0xLu4Z64No0bFlipD0Y5dtpC7Q+h7uxPdWuUmWW3x3YWEBoLuOuOS2X/y0Ej4VkXFjfq6q4JpGSzK+vcJDGxpUO+Hilx03ZDayoBDTcM/T3oSAnk03PpvDbDfNhdnSiWNQTjW/nr55MHsF0g9KJHodBz3/Ucelz5+RC/avRm+plVyeoecJH6rFHE9WL9mR4EZVJAC3aRkOTSeoWnD+0I9jTMs95LW4oP5d1OdHaiNm6HQ13xP2TPsqGJLNItWBnsfDfUcFTGs9NTC1tfcvGe7JtGOKyQWizfFa+LOLbwY4GJBXnN9z mod-dev"
 }

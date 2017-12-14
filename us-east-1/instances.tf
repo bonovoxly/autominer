@@ -33,7 +33,7 @@ resource "aws_spot_instance_request" "ethminer" {
   instance_type = "${ var.ethminer_instance_type }"
   associate_public_ip_address = true
   count = "1"
-  key_name = "${ aws_key_pair.dev.key_name }"
+  key_name = "${ aws_key_pair.mod-dev.key_name }"
   subnet_id = "${ aws_subnet.node-a.id }"
   user_data = "${file("ethminer_data.sh")}"
   vpc_security_group_ids = ["${ aws_security_group.ethminer.id }"]
