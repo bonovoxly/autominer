@@ -2,9 +2,7 @@
 # tasks file for instance.docker
 # https://docs.docker.com/engine/installation/linux/ubuntulinux/
 - name: Install Docker apt key.
-  apt_key:
-    keyserver: "{{ docker_keyserver }}"
-    id: "{{ docker_id }}"
+  shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 
 - name: Create the apt sources file.
   copy:
