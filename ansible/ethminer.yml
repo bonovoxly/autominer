@@ -14,6 +14,7 @@
   roles:
     - role: instance.ssh_aws_public_key
     - role: instance.packages
+    - role: instance.docker
     - role: instance.docker_apt_repo
     - role: instance.nvidia_docker
     - role: instance.prometheus_node_exporter

@@ -1,0 +1,8 @@
+---
+# tasks file for instance.docker
+# https://docs.docker.com/engine/installation/linux/ubuntulinux/
+- name: Install Docker apt key.
+  apt_key:
+    keyserver: "{{ docker_keyserver }}"
+    id: "{{ docker_id }}"
+
