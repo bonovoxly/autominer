@@ -1,9 +1,6 @@
 ---
 # tasks file for instance.ethminer
-- name: Docker pull image.
-  shell: docker pull {{ ethminer_docker_image }}
-
-- name: Create the {{ volume_path }}/bitcoin directory.
+- name: Create the {{ volume_path }}/ethminer directory.
   file:
     path: "{{ volume_path }}/ethminer"
     state: directory
