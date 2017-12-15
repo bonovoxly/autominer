@@ -6,3 +6,5 @@
     keyserver: "{{ docker_keyserver }}"
     id: "{{ docker_id }}"
 
+- name: Install Docker CE.
+  shell: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
