@@ -14,7 +14,12 @@
     update_cache: yes
   changed_when: false
 
-- name: Install Docker.
+- name: Install Nvidia CUDA.
+  apt:
+    name: nvidia-cuda-toolkit
+    state: latest
+
+- name: Install Nvidia Docker.
   apt:
     name: "nvidia-docker2"
     state: present

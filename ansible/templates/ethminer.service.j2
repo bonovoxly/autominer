@@ -10,9 +10,7 @@ ExecStart=/usr/bin/nvidia-docker run \
   {{ ethminer_docker_image }} \
   --cl-local-work 256 \
   --cl-global-work 16384 \
-  -S xmr-usa.dwarfpool.com:3350 \
-  -O {{ ethereum_address | default('0x0d24D8bE450C0DfA831C34e8c9f4a2dee9296814') }}.{{ worker_name | default('worker') }}/{{ email | default('bcawthra@gmail.com') }} \
-  -SP 1
+  -F {{ pool_address | default('http://eth-usa.dwarfpool.com/' }}{{ ethereum_address | default('0x0d24D8bE450C0DfA831C34e8c9f4a2dee9296814') }}/{{ worker_name | default('worker') }}/{{ email | default('bcawthra@gmail.com') }}
 
 ExecStop=-/usr/bin/nvidia-docker stop ethminer
 
