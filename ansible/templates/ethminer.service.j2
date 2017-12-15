@@ -6,13 +6,11 @@ After=docker.service
 ExecStartPre=-/usr/bin/nvidia-docker pull {{ ethminer_docker_image }}
 ExecStartPre=-/usr/bin/nvidia-docker rm ethminer
 ExecStart=/usr/bin/nvidia-docker run \
-  --it \
   --name ethminer \
   {{ ethminer_docker_image }} \
   --cl-local-work 256 \
   --cl-global-work 16384 \
   -S xmr-us.dwarfpool.com:3350 \
-  -O 0x0d24D8bE450C0DfA831C34e8c9f4a2dee9296814.worker/bcawthra@gmail.com \
   -O {{ ethereum_address | default('0x0d24D8bE450C0DfA831C34e8c9f4a2dee9296814') }}.{{ worker_name | default('worker') }}/{{ email | default('bcawthra@gmail.com') }} \
   -SP 1
 
