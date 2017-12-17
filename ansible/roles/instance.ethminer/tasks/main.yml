@@ -14,9 +14,9 @@
   command: systemctl daemon-reload
   changed_when: false
 
-# - name: Start the ethminer service.
-#   service:
-#     name: ethminer
-#     state: started
-#     enabled: yes
+- name: Start the ethminer service.
+  service:
+    name: ethminer
+    state: started
+    enabled: yes
 
